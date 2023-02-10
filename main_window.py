@@ -24,16 +24,10 @@ class AnotherWindow(QWidget):
       
         self.setFixedSize(700,700)
         self.setWindowTitle("Gmail Wizard")
-        # self.labelglogo = QLabel(self)
-        # self.labelglogo.setGeometry(QRect(190, -85, 500, 400))
-        # self.pixmap=QPixmap(f'mailscreen.png')
-        # self.labelglogo.setPixmap(self.pixmap) 
-        # self.labelglogo.show()
 
         self.textbox = QLineEdit(self)
         self.textbox.resize(200,100)
         self.textbox.setPlaceholderText("Recipients")
-        self.textbox.setProperty("manadatoryField", True)
         self.textbox.setGeometry(200, 200, 300, 50)
         self.textbox1 = QLineEdit(self)
         self.textbox.setStyleSheet("QLineEdit"
@@ -148,28 +142,33 @@ class AnotherWindow(QWidget):
         for receivers in rec_list:
             try:
                 ezgmail.send(receivers, subject, body, attachments=files)
-                dlg = QMessageBox(self)
-                dlg.setStyleSheet("QMessageBox"
+                msg = QMessageBox(text="Email sent successfully.",parent=self)
+                msg.setIcon(QMessageBox.Icon.Information)
+                msg.setStandardButtons(
+                                        QMessageBox.StandardButton.Ok)
+                msg.setStyleSheet("QMessageBox"
                 "{"
                 "background-color : #423F3E;"
                 "}")
-                dlg.setWindowTitle("Status")
-                dlg.setText("Email sent successfully")
-                
-                dlg.exec()
+                msg.exec()
+              
                 
             except:
-                dlgno = QMessageBox(self)
-                dlgno.setWindowTitle("Status")
-                dlgno.setStyleSheet("QMessageBox"
+                
+          
+                msg = QMessageBox(text="Email not sent.",parent=self)
+                msg.setIcon(QMessageBox.Icon.Critical)
+                msg.setStandardButtons(
+                                        QMessageBox.StandardButton.Ok)
+                msg.setStyleSheet("QMessageBox"
                 "{"
                 "background-color : #423F3E;"
                 "}")
-                dlgno.setText("Email not sent")
-                dlgno.exec()
-                dlgno.setMinimumHeight(500)
-                dlgno.setSizeIncrement(1, 1)
-                dlgno.setSizeGripEnabled(True)
+                msg.exec()
+ 
+
+ 
+                
 class appWindow(QMainWindow):
     def __init__(self):
         super().__init__()
@@ -260,6 +259,7 @@ class appWindow(QMainWindow):
                              "border: 1px solid white;"
                              "}"
                              )
+
         button.setGeometry(30, 540, 230, 40)
         self.labelfirst = QLabel(self)
         self.labelfirst.setGeometry(QRect(350, 20, 600, 700))
