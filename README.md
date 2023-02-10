@@ -5,6 +5,7 @@
 ## Introduction
 
 Hello Earthlings. Myself Kshitij Thareja. 
+
 Have you ever wondered what Mars actually looks like? How do scientists and space enthusiasts carry out their research related to the 'Red Planet'. There's a lot of data derived from rovers which are launched by various space research centers. One such rover is Curiosity, launched by NASA on 26 November, 2011.
 
 This application fetches images from the Mars rover API, a facility provided by NASA. With a simple and user-friendly interface, you can easily browse through the images based on a specific date, and save or share photos with others.
@@ -28,6 +29,7 @@ Then you can run gui.py to start the application. Don't forget to use your API k
 Add the API key to line 395 of main_window.py file. 
 
 `secret=str(os.getenv('SECRET'))`
+
 You can put you key in place of the environment variable used here.
 
 `secret="Your_API_Key"`
