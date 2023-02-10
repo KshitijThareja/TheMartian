@@ -14,16 +14,22 @@ This application fetches images from the Mars rover API, a facility provided by 
 To get started, simply clone this repository and create a virtual environment in the cloned directory Then install the required packages from [requirements.txt](requirements.txt) file given in this repository.
 
 `$ git clone https://github.com/KshitijThareja/TheMartianChronicles.git`
+
 `$ cd TheMartianChronicles`
+
 `$ python3 -m venv myvenv`
+
 `$ source myvenv/bin/activate`
+
 `$ pip3 install -r requirements.txt`
  
 Then you can run gui.py to start the application. Don't forget to use your API key, which you can get from [NASA APIS](https://api.nasa.gov/)
 
 Add the API key to line 395 of main_window.py file. 
+
 `secret=str(os.getenv('SECRET'))`
 You can put you key in place of the environment variable used here.
+
 `secret="Your_API_Key"`
 
 ## UI of existing application
@@ -42,6 +48,5 @@ You can put you key in place of the environment variable used here.
 
 ### Working application
 
-You can see how the GUI of the application works in the video given.
-[Working application](assets/working/application.webm)
-[Working](assets/working/application.webm)
+You can see how the GUI of the application works in the
+[video given here](assets/working/application.webm)
